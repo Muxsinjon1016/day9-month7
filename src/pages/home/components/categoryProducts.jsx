@@ -17,17 +17,19 @@ export const CategoryProducts = () => {
         variant={"show"}
         children={"Add a new product"}
       />
-      {data?.length > 0 ? (
-        data.map((product) => (
-          <CategoryProductsCard key={product.id} {...product} />
-        ))
-      ) : (
-        <>
-          <p className="text-red-600 mt-24 text-5xl text-center font-bold">
-            You have not any product!
-          </p>
-        </>
-      )}
+      <div className="flex flex-wrap gap-5 justify-evenly">
+        {data?.length > 0 ? (
+          data.map((product) => (
+            <CategoryProductsCard key={product.id} {...product} />
+          ))
+        ) : (
+          <>
+            <p className="text-red-600 mt-24 text-5xl text-center font-bold">
+              You have not any product!
+            </p>
+          </>
+        )}
+      </div>
     </>
   );
 };

@@ -1,9 +1,11 @@
 import React from "react";
 import Button from "../../../components/ui/button";
 import { useDeleteSingleProduct } from "../../../services/mutation/useDeleteSingleProduct";
+import { useNavigate } from "react-router-dom";
 
 export const RenderAllProducts = ({ title, url, description, price, id }) => {
   const { mutate } = useDeleteSingleProduct();
+  const navigate = useNavigate();
 
   const deleteSingleProduct = () => {
     mutate(id);
@@ -30,7 +32,11 @@ export const RenderAllProducts = ({ title, url, description, price, id }) => {
             variant={"delete"}
             children={"Delete"}
           />
-          <Button variant={"edit"} children={"Edit"} />
+          <Button
+            onClick={() => navigate(`/edit-product/${id}`)}
+            variant={"edit"}
+            children={"Edit"}
+          />
         </div>
       </div>
     </div>

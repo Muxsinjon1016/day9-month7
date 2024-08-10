@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Input } from "./ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useNewCategory } from "../services/mutation/useNewCategory";
+import { useAddProduct } from "../services/mutation/useAddProduct";
 import { Button } from "./ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -13,9 +13,9 @@ const schema = z.object({
   description: z.string().min(7, "At least 7 charecters"),
 });
 
-export const AddNewProduct = () => {
+export const ProductForm = () => {
   const navigate = useNavigate();
-  const { mutate } = useNewCategory();
+  const { mutate } = useAddProduct();
   const {
     register,
     handleSubmit,
@@ -23,7 +23,7 @@ export const AddNewProduct = () => {
     formState: { errors },
   } = useForm({ resolver: zodResolver(schema) });
 
-  const newCategorySubmit = (data) => {
+  const newProductSubmit = (data) => {
     mutate(data, {
       onSuccess: () => {
         navigate("/");
@@ -34,8 +34,8 @@ export const AddNewProduct = () => {
 
   return (
     <div>
-      <form className="mt-32" onSubmit={handleSubmit(newCategorySubmit)}>
-        <select name="" id=""></select>
+      <form className="mt-32" onSubmit={handleSubmit(newProductSubmit)}>
+        <select {...register("categoryId")}></select>
         <Input
           register={register}
           className={"mt-5 w-[60%] mx-auto block"}
@@ -90,4 +90,4 @@ export const AddNewProduct = () => {
   );
 };
 
-export default AddNewProduct;
+export default ProductForm;

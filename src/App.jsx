@@ -21,7 +21,7 @@ function App() {
           <Route path="category-products/:id" element={<CategoryProducts />} />
           <Route path="new-category-form" element={<NewCategoryForm />} />
           <Route path="edit-category-form/:id" element={<EditCategoryForm />} />
-          <Route path="/add-new-product" element={<AddProduct />} />
+          <Route path="add-new-product" element={<AddProduct />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

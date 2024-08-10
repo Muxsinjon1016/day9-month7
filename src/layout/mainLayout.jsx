@@ -29,6 +29,12 @@ export const MainLayout = () => {
           to={"/new-category-form"}
         >
           Create category
+        </Link>{" "}
+        <Link
+          className="block text-white font-semibold text-xl mt-2 transition duration-500 border-r-4 border-transparent hover:border-white"
+          to={"/add-new-product"}
+        >
+          Create product
         </Link>
       </div>
       <div className="w-[80%] ml-auto p-10">

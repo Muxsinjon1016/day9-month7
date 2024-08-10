@@ -11,11 +11,8 @@ export const AddProduct = () => {
   const navigate = useNavigate();
 
   const newProductSubmit = (data) => {
-    mutate(data, {
-      onSuccess: () => {
-        navigate("/");
-      },
-    });
+    mutate(data);
+    navigate(-1);
   };
 
   return (

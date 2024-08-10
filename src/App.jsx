@@ -8,7 +8,7 @@ import { AllProducts } from "./pages/products/allProducts";
 import { CategoryProducts } from "./pages/home/components/categoryProducts";
 import { NewCategoryForm } from "./components/newCategoryForm";
 import { EditCategoryForm } from "./components/editCategoryForm";
-import { AddNewProduct } from "./components/addNewProduct";
+import { AddProduct } from "./pages/products/components/addProduct";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
           <Route path="category-products/:id" element={<CategoryProducts />} />
           <Route path="new-category-form" element={<NewCategoryForm />} />
           <Route path="edit-category-form/:id" element={<EditCategoryForm />} />
-          <Route path="/add-new-product" element={<AddNewProduct />} />
+          <Route path="/add-new-product" element={<AddProduct />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
